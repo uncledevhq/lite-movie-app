@@ -1,0 +1,35 @@
+body, html {
+  min-width: 100%;
+  min-height: 100vh;
+  color: #fff;
+  background-color: #1f1f1f ;
+  overflow:hidden;
+}
+
+.movie-app {
+  align-items: center;
+}
+.container-yama-movies {
+  overflow: hidden;
+  overflow-x: auto;
+  flex-wrap: nowrap;
+  display: flex;
+  flex-direction: row;
+  
+}
+
+.movie-imozi {
+  width: 212px;
+  padding: 6px;
+}
+.image-box {
+  width: 100%;
+}
+.image-box img {
+  width: 100%;
+  cursor:pointer;
+}
+.image-box img:hover {
+  transform: scale(1.1);
+  cursor: pointer;
+}
