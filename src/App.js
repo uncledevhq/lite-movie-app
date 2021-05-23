@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import MovieList from './components/MovieList';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+
+
 import Header from './components/Header';
-import TabSection from './components/TabSection';
+import Home from './components/Home';
 import Footer from './components/Footer';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -15,7 +17,7 @@ function App() {
       title: "mpali",
       category: "family",
       id: 1,
-      poster: "https://chomba.live/cdn/random/mpali-4.jfif",
+      poster: "https://chomba.live/cdn/random/mpali-4.jpg",
       watchLink: "https://zambezimagic.dstv.com/show/mpali",
       year: 2019,
       parentalGuidance: 16,
@@ -85,28 +87,12 @@ function App() {
     }
   ]);
 
-  // const getMovieRequest = async () => {
-  //   const url = "http://www.omdbapi.com/?s=star wars&apikey=db7606e";
-
-  //   const response = await fetch(url);
-  //   const responseJson = await response.json();
-
-  //   console.log(responseJson.Search);
-  //   setMovies(responseJson.Search);
-
-  // }
-
-  // useEffect(() => {
-  //   getMovieRequest();
-  // },[]);
-
-
   return (
     <div className="container-ya-app">
-      <Header />
-      <TabSection />
-      <MovieList movies={movies}/>
-      <Footer />
+
+        <Header />
+          <Home movies={movies} />
+        <Footer />
     </div>
   );
 }

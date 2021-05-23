@@ -1,13 +1,14 @@
 import React from 'react';
+
 import NavMenu from './NavMenu';
 import HeroSec from './HeroSec';
-function Header() {
-    return (
+
+const Header = () => (
         <header>
             <NavMenu />
             <HeroSec />
         </header>
-    )
-}
+);
 
-export default Header
+
+export default Header;
