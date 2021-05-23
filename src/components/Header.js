@@ -1,10 +1,12 @@
-import React from 'react'
-
+import React from 'react';
+import NavMenu from './NavMenu';
+import HeroSec from './HeroSec';
 function Header() {
     return (
-        <div>
-            <input type="search" name="searn-movie" placeholder="Search movie, year , genre" id="" />
-        </div>
+        <header>
+            <NavMenu />
+            <HeroSec />
+        </header>
     )
 }
 

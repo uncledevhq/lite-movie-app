@@ -2,8 +2,8 @@ import React from 'react';
 import Movie from './Movie';
 function MovieList(props) {
     return (
-        <div className="container-yama-movies">
-            {props.movies.map(movie => <Movie key={movie.imdbID} movie={movie} />)}
+        <div className="ma-movies-box">
+            {props.movies.map(movie => <Movie key={movie.id} movie={movie} />)}
         </div>
     )
 }

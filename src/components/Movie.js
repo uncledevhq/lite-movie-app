@@ -3,9 +3,9 @@ import React from 'react'
 function Movie({movie}) {
     return (
         <div className="movie-imozi">
-            <div className="image-box">
-                <img src={movie.Poster} alt={movie.Title} />
-            </div>
+            <a href="#!">
+                <img className="poster-img" src={movie.poster} alt={movie.title} />
+            </a>
         </div>
     )
 }
