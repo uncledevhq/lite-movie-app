@@ -5,12 +5,12 @@ function TabSection() {
         <ul className="flex-box-lxt">
             <li>
                 <a className="link-ya-tab active-tab" href="#!">
-                    New Releases   
+                    Trending   
                 </a>    
             </li>           
             <li>
                 <a className="link-ya-tab" href="#!">
-                    Trending   
+                    New Releases
                 </a>    
             </li>           
         </ul>

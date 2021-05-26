@@ -1,97 +1,44 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
+import axios from 'axios';
 
 import Header from './components/Header';
+import HeroSec from './components/HeroSec';
 import Home from './components/Home';
 import Footer from './components/Footer';
 
-import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 import './App.css';
 import './Reset.css'
 
+
+
 function App() {
-  const [movies, setMovies] = useState([
-    {
-      title: "mpali",
-      category: "family",
-      id: 1,
-      poster: "https://chomba.live/cdn/random/mpali-4.jpg",
-      watchLink: "https://zambezimagic.dstv.com/show/mpali",
-      year: 2019,
-      parentalGuidance: 16,
-      rating: 7.8,
-      plotSummery: "Mpali follows the story of Mr Nguzu, a polygamist married to seven women, Junza (the first wife), Mwiza (the second wife), Monde (the third wife), Tombi (the fourth wife), Shupiwe (the fifth wife, Tamara (the sixth wife) and lastly Nancy (the seventh wife",
-      season: [1,2,3,4]
-    },
-    {
-      title: "shi mumbi",
-      category: "comedy",
-      id: 2,
-      poster: "https://chomba.live/cdn/random/shi-mumbi.jpg",
-      watchLink: "https://zambezimagic.dstv.com/show/shi-mumbi/",
-      year: 2020,
-      parentalGuidance: 16,
-      rating: 7.2,
-      plotSummery: "Shi Mumbi has to find a way to get Belinda back after the failed Kitchen party.",
-      season: [1,2]
-    },
-    {
-      title: "Makofi",
-      category: "drama",
-      id: 3,
-      poster: "https://chomba.live/cdn/random/make-off.jpg",
-      watchLink: "https://zambezimagic.dstv.com/show/makofi",
-      year: 2021,
-      parentalGuidance: 16,
-      rating: 7.2,
-      plotSummery: "Makofi tells the story of a young woman who defies tradition and norms to become a prize-fighter...in all respects of the word.",
-      season: [1]
-    },
-    {
-      title: "snakes and ladders",
-      category: "drama",
-      id: 4,
-      poster: "https://chomba.live/cdn/random/snakes%26ladders.jpg",
-      watchLink: "https://zambezimagic.dstv.com/show/snakes-and-ladders",
-      year: 2020,
-      parentalGuidance: 13,
-      rating: 5.2,
-      plotSummery: "A riveting drama about the challenges faced by a miner working in the Copperbelt. The storyline hones on the themes of love, lust, alcholism, broken relationships and financial struggles.",
-      season: [1,2,3]
-    },
-    {
-      title: "the security guard",
-      category: "comedy",
-      id: 5,
-      poster: "https://chomba.live/cdn/random/the-gurd.jpg",
-      watchLink: "https://zambezimagic.dstv.com/show/makofi",
-      year: 2020,
-      parentalGuidance: 16,
-      rating: 6.1,
-      plotSummery: "General Katundu has it out for Alibaba, forcing Alibaba to pursue alternative avenues of revenue as 'insurance'.",
-      season: [1,2,3,4]
-    },
-    {
-      title: "zuba",
-      category: "comedy",
-      id: 6,
-      poster: "https://chomba.live/cdn/random/zuba.png",
-      watchLink: "https://zambezimagic.dstv.com/show/zuba",
-      year: 2019,
-      parentalGuidance: 16,
-      rating: 8.1,
-      plotSummery: "The story of Zuba continues, a story about love, trust and betrayal. The story revolves around an innocent, rural teenage girl who has to leave her family and education behind to do a maid’s job with a complex, wealthy urban family where she falls for the young son of the house.",
-      season: [1,2,3,4,5]
-    }
-  ]);
+  const [movies, setMovies] = useState([]);
+  
+  useEffect(() => {
+    const idUrl = "http://www.omdbapi.com/?t=avengers&apikey=db7606e&";
+    const trendingUrl = 'https://api.themoviedb.org/3/trending/all/week?api_key=c9947f7e0c9c203b2363269663122d16';
+    const DiscoverUrl = 'https://api.themoviedb.org/3/discover/movie?api_key=c9947f7e0c9c203b2363269663122d16&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_watch_monetization_types=free';
+    axios.get(trendingUrl)
+    .then(res => {
+      const moviesData = res.data;
+      const movies = moviesData.results;
+      setMovies(movies);
+      console.log(movies[0]);
+    })
+
+  },[]);
+  
 
   return (
     <div className="container-ya-app">
 
         <Header />
-          <Home movies={movies} />
+        <HeroSec />
+        <Home movies={movies} />
         <Footer />
     </div>
   );
