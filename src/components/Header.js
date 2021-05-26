@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Redirect } from "react-router-dom";
 
 
 function Header() {
@@ -9,7 +10,8 @@ function Header() {
     };
     const handleSearchSubmit = e =>  {
         e.preventDefault();
-        alert(searchValue);
+        <Redirect to="/search/" />
+
     };
     return (
         <header className="header-bar">
